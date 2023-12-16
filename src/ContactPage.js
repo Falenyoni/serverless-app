@@ -19,14 +19,22 @@ function Form() {
     console.log(phone);
     console.log(message);
 
-    
+    const response = await axios.post(
+      "https://2mdv0xqa3d.execute-api.us-east-1.amazonaws.com/default/severlessAppFunction",
+      {
+        key1: `${name}`,
+        key2: `${email}`,
+        key3: `${phone}`,
+        key4: `${message}`,
+      }
+    );
+
+    console.log(response.data);
 
     setName("");
     setEmail("");
     setPhone("");
     setMessage("");
-
-    //console.log(response.data);
   };
 
   return (
